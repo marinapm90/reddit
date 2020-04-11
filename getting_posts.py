@@ -97,5 +97,6 @@ all_posts["created_utc"] = all_posts["created_utc"].apply(datetime.fromtimestamp
 all_posts.rename(columns={'created_utc':'date_hour'},inplace=True)
 all_posts['date'] = [d.date() for d in all_posts['date_hour']]
 all_posts['time'] = [d.time() for d in all_posts['date_hour']]
+all_posts['weekday'] = [d.weekday() for d in all_posts['date']]
 
 all_posts.to_csv('reddit_posts.csv')
