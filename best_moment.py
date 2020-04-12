@@ -182,6 +182,6 @@ result_score.reset_index(inplace=True)
 print("===========================================================")
 print(result)
 print("===========================================================")
-print(result.day[0] + " is the day than most posts are published.")
+print(result.day[0] + " is the day that most posts are published.")
 highest_score = result_score.day[0]
 print("Posts publised on {} are those with highest scores.".format(highest_score))
