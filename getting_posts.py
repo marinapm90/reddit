@@ -32,12 +32,17 @@ def get_subreddit_posts(subreddit_url):
 
     return posts
 
+
+# Getting the first 100 posts.
+
 posts = get_subreddit_posts(url)
 df_posts = pd.DataFrame(posts)
 last_value= df_posts.name[99]
 
 
 url= "{}&after={}".format(url,last_value)
+
+# Getting the following 100 posts.
 
 posts= get_subreddit_posts(url)
 df_posts_2 = pd.DataFrame(posts)
@@ -46,12 +51,17 @@ last_value= df_posts_2.name[99]
 
 url = "{}&after={}".format(url,last_value)
 
+
+# Getting the following 100 posts.
+
 posts = get_subreddit_posts(url)
 df_posts_3 = pd.DataFrame(posts)
 last_value= df_posts_3.name[99]
 
 
 url = "{}&after={}".format(url,last_value)
+
+# Getting the following 100 posts.
 
 posts = get_subreddit_posts(url)
 df_posts_4 = pd.DataFrame(posts)
@@ -60,12 +70,17 @@ last_value= df_posts_4.name[99]
 
 url = "{}&after={}".format(url,last_value)
 
+
+# Getting the following 100 posts.
+
 posts = get_subreddit_posts(url)
 df_posts_5 = pd.DataFrame(posts)
 last_value= df_posts_5.name[99]
 
 
 url = "{}&after={}".format(url,last_value)
+
+# Getting the following 100 posts.
 
 posts = get_subreddit_posts(url)
 df_posts_6 = pd.DataFrame(posts)
@@ -74,12 +89,16 @@ last_value= df_posts_6.name[99]
 
 url = "{}&after={}".format(url,last_value)
 
+# Getting the following 100 posts.
+
 posts = get_subreddit_posts(url)
 df_posts_7 = pd.DataFrame(posts)
 last_value= df_posts_7.name[99]
 
 
 url = "{}&after={}".format(url,last_value)
+
+# Getting the following 100 posts.
 
 posts = get_subreddit_posts(url)
 df_posts_8 = pd.DataFrame(posts)
@@ -88,15 +107,30 @@ last_value= df_posts_8.name[99]
 
 url = "{}&after={}".format(url,last_value)
 
+# Getting the last 100 posts.
+
 posts = get_subreddit_posts(url)
 df_posts_9 = pd.DataFrame(posts)
 
+# Concatenate all the datasets into one.
 
 all_posts = pd.concat([df_posts,df_posts_2,df_posts_3,df_posts_4,df_posts_5,df_posts_6,df_posts_7,df_posts_8,df_posts_9])
+
+# Changing date time from utc to something readable.
+
 all_posts["created_utc"] = all_posts["created_utc"].apply(datetime.fromtimestamp)
 all_posts.rename(columns={'created_utc':'date_hour'},inplace=True)
+
+# Splitting the column into date and time.
+
 all_posts['date'] = [d.date() for d in all_posts['date_hour']]
 all_posts['time'] = [d.time() for d in all_posts['date_hour']]
+
+# Adding weekday.
+
 all_posts['weekday'] = [d.weekday() for d in all_posts['date']]
 
+# Saving our dataset with all posts.
+
 all_posts.to_csv('reddit_posts.csv')
+
