@@ -33,91 +33,24 @@ def get_subreddit_posts(subreddit_url):
 
     return posts
 
-
-# Getting the first 100 posts.
-
+# Getting all posts.
 posts = get_subreddit_posts(url)
-df_posts = pd.DataFrame(posts)
-last_value= df_posts.name[99]
+all_posts= []
+    
+for post in posts:
+    try:
+        posts = get_subreddit_posts(url)
+        last_value = [ sub['name'] for sub in posts][-1]
+        url = "{}&after={}".format(url,last_value)
+        all_posts += get_subreddit_posts(url)
+        all_posts
+        
+    except (IndexError):
+        pass
 
+# Creating data frame
 
-url= "{}&after={}".format(url,last_value)
-
-# Getting the following 100 posts.
-
-posts= get_subreddit_posts(url)
-df_posts_2 = pd.DataFrame(posts)
-last_value= df_posts_2.name[99]
-
-
-url = "{}&after={}".format(url,last_value)
-
-
-# Getting the following 100 posts.
-
-posts = get_subreddit_posts(url)
-df_posts_3 = pd.DataFrame(posts)
-last_value= df_posts_3.name[99]
-
-
-url = "{}&after={}".format(url,last_value)
-
-# Getting the following 100 posts.
-
-posts = get_subreddit_posts(url)
-df_posts_4 = pd.DataFrame(posts)
-last_value= df_posts_4.name[99]
-
-
-url = "{}&after={}".format(url,last_value)
-
-
-# Getting the following 100 posts.
-
-posts = get_subreddit_posts(url)
-df_posts_5 = pd.DataFrame(posts)
-last_value= df_posts_5.name[99]
-
-
-url = "{}&after={}".format(url,last_value)
-
-# Getting the following 100 posts.
-
-posts = get_subreddit_posts(url)
-df_posts_6 = pd.DataFrame(posts)
-last_value= df_posts_6.name[99]
-
-
-url = "{}&after={}".format(url,last_value)
-
-# Getting the following 100 posts.
-
-posts = get_subreddit_posts(url)
-df_posts_7 = pd.DataFrame(posts)
-last_value= df_posts_7.name[99]
-
-
-url = "{}&after={}".format(url,last_value)
-
-# Getting the following 100 posts.
-
-posts = get_subreddit_posts(url)
-df_posts_8 = pd.DataFrame(posts)
-last_value= df_posts_8.name[99]
-
-
-url = "{}&after={}".format(url,last_value)
-
-# Getting the last 100 posts.
-
-posts = get_subreddit_posts(url)
-df_posts_9 = pd.DataFrame(posts)
-
-# Concatenate all the datasets into one.
-
-all_posts = pd.concat([df_posts,df_posts_2,df_posts_3,df_posts_4,df_posts_5,df_posts_6,df_posts_7,df_posts_8,df_posts_9])
-
-# Changing date time from utc to something readable.
+all_posts = pd.DataFrame(all_posts)
 
 all_posts["created_utc"] = all_posts["created_utc"].apply(datetime.fromtimestamp)
 all_posts.rename(columns={'created_utc':'date_hour'},inplace=True)
