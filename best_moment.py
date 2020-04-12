@@ -2,6 +2,7 @@ import requests
 import pandas as pd
 from datetime import datetime
 import numpy as np
+from functools import lru_cache
 
 url = "https://reddit.com/r/programming/.json?limit=100"
 
@@ -11,7 +12,7 @@ REDDIT_ROOT_URL = "https://reddit.com"
 def get_with_headers(url):
     return requests.get(url, headers=headers)
 
-
+@lru_cache(maxsize=32)
 def get_subreddit_posts(subreddit_url):
     print(f"Getting posts from {url}...")
     response = get_with_headers(url)
