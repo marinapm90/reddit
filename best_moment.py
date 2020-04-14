@@ -34,6 +34,7 @@ def get_subreddit_posts(subreddit_url):
     return posts
 
 # Getting all posts.
+
 posts = get_subreddit_posts(url)
 all_posts= []
     
@@ -59,6 +60,12 @@ all_posts.rename(columns={'created_utc':'date_hour'},inplace=True)
 
 all_posts['date'] = [d.date() for d in all_posts['date_hour']]
 all_posts['time'] = [d.time() for d in all_posts['date_hour']]
+
+# Splitting the column into hour, minutes and seconds.
+
+all_posts['hour'] = all_posts['date_hour'].dt.hour
+all_posts['minute'] = all_posts['date_hour'].dt.minute
+all_posts['second'] = all_posts['date_hour'].dt.second
 
 # Adding weekday.
 
