@@ -3,6 +3,7 @@ import pandas as pd
 from datetime import datetime
 import numpy as np
 from functools import lru_cache
+pd.options.mode.chained_assignment = None
 
 url = "https://reddit.com/r/programming/.json?limit=100"
 
@@ -115,7 +116,6 @@ result.rename = result.rename(columns = {'index':'day'}, inplace = True)
 # Dropping useless columns.
 
 result.drop(['weekday', 'repeated_weekday', ('score', 'sum')], axis=1,inplace=True)
-
 
 result_score = result.sort_values(['score_per_day'], ascending = False)
 result_score.reset_index(inplace=True)
