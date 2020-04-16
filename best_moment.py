@@ -119,9 +119,27 @@ result.drop(['weekday', 'repeated_weekday', ('score', 'sum')], axis=1,inplace=Tr
 
 result_score = result.sort_values(['score_per_day'], ascending = False)
 result_score.reset_index(inplace=True)
+highest_score = result_score.day[0]
+
+# Grouping a dataset by weekday, hour and total score.
+
+hours_weekday = all_posts.groupby(by=['weekday','hour']).agg({'score':['sum']}).reset_index()
+hours_weekday['total_score'] = hours_weekday['score', 'sum']*1
+hours_weekday.drop([('score', 'sum')], axis=1,inplace=True)
+hours_weekday.sort_values(['total_score'],ascending= False, inplace=True)
+hours_weekday['weekday'] = hours_weekday['weekday'].replace(0,'Monday').replace(1,'Tuesday').replace(2,'Wednesday').replace(3,'Thursday').replace(4,'Friday').replace(5,'Saturday').replace(6,'Sunday')
+
+# Getting the best hour depending on the best day.
+
+best_hour = hours_weekday[(hours_weekday['weekday']== highest_score)]
+best_hour.sort_values(['total_score'],ascending= False,inplace=True)
+time = best_hour.hour.iloc[0]
+
+# Getting results
+
 print("===========================================================")
 print(result)
 print("===========================================================")
 print(result.day[0] + " is the day that most posts are published.")
-highest_score = result_score.day[0]
 print("Posts publised on {} are those with highest scores.".format(highest_score))
+print('The best time to post on {} is at {}H'.format(highest_score,time))
