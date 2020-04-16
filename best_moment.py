@@ -5,7 +5,10 @@ import numpy as np
 from functools import lru_cache
 pd.options.mode.chained_assignment = None
 
-url = "https://reddit.com/r/programming/.json?limit=100"
+print('In which subreddit do you want to post? (example: https://www.reddit.com/r/learnpython/ --> just type learnpython)')
+subreddit = input()
+
+url = "https://reddit.com/r/{}/.json?limit=100".format(subreddit)
 
 headers = {'User-Agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:66.0) Gecko/20100101 Firefox/66.0"}
 REDDIT_ROOT_URL = "https://reddit.com"
@@ -141,5 +144,5 @@ print("===========================================================")
 print(result)
 print("===========================================================")
 print(result.day[0] + " is the day that most posts are published.")
-print("Posts publised on {} are those with highest scores.".format(highest_score))
+print("Posts published on {} are those with highest scores.".format(highest_score))
 print('The best time to post on {} is at {}H'.format(highest_score,time))
