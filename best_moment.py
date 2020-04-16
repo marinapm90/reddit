@@ -5,7 +5,8 @@ import numpy as np
 from functools import lru_cache
 pd.options.mode.chained_assignment = None
 
-print('In which subreddit do you want to post? (example: https://www.reddit.com/r/learnpython/ --> just type learnpython)')
+print("""In which subreddit do you want to post?
+(example: https://www.reddit.com/r/learnpython/ --> just type learnpython)""")
 subreddit = input()
 
 try:
