@@ -24,7 +24,7 @@ Set UP:
 
 To use it you just need to run:
 
-``` python3 best_moments.py```
+``` python3 best_moment.py```
 
 And it will ask you which subreddit do you want to parse.
 
