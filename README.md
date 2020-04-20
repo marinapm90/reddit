@@ -1,4 +1,4 @@
-# WHEN IS THE BEST MOMENT FOR...?![logoreddit](https://www.pinpng.com/pngs/m/42-426304_download-icon-reddit-svg-eps-png-psd-ai.png)
+# WHEN IS THE BEST MOMENT FOR...?![logoreddit](https://styles.redditmedia.com/t5_6/styles/communityIcon_a8uzjit9bwr21.png)
 
 
 I am pretty sure that at least once in your life you have wondered when is the best time to post on Reddit, and if that is not the case, I am pretty sure that you are now asking yourself the question.
@@ -23,7 +23,7 @@ Set UP:
 
 To use it you just need to run:
 
-``` python best_moments.py```
+``` python3 best_moments.py```
 
 And it will ask you which subreddit do you want to parse.
 
