@@ -1,4 +1,4 @@
-# WHEN IS THE BEST MOMENT FOR...?![logoreddit](https://styles.redditmedia.com/t5_6/styles/communityIcon_a8uzjit9bwr21.png =20x20)
+<H1> WHEN IS THE BEST MOMENT FOR...? <img src="https://styles.redditmedia.com/t5_6/styles/communityIcon_a8uzjit9bwr21.png" width="40"> </H1>
 
 
 I am pretty sure that at least once in your life you have wondered when is the best time to post on Reddit, and if that is not the case, I am pretty sure that you are now asking yourself the question.
@@ -9,12 +9,13 @@ How?
 
 Analyzing the latest posts and scores.
 
-Python Libraries:
-requests
-pandas
-datetime
-numpy
-functools
+#### Python Libraries:
+
+- requests
+- pandas
+- datetime
+- numpy
+- functools
 
 A [requirements.txt](https://github.com/marinapm90/reddit/blob/master/requirements.txt) file is included in the repository for easy installation
 
