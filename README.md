@@ -1,4 +1,4 @@
-# WHEN IS THE BEST MOMENT FOR...?![logoreddit](https://styles.redditmedia.com/t5_6/styles/communityIcon_a8uzjit9bwr21.png)
+# WHEN IS THE BEST MOMENT FOR...?![logoreddit](https://styles.redditmedia.com/t5_6/styles/communityIcon_a8uzjit9bwr21.png =20x20)
 
 
 I am pretty sure that at least once in your life you have wondered when is the best time to post on Reddit, and if that is not the case, I am pretty sure that you are now asking yourself the question.
