@@ -17,9 +17,9 @@ Analyzing the latest posts and scores.
 - numpy
 - functools
 
-A [requirements.txt](https://github.com/marinapm90/reddit/blob/master/requirements.txt) file is included in the repository for easy installation
+A [requirements.txt](https://github.com/marinapm90/reddit/blob/master/requirements.txt) file is included in the repository for easy installation.
 
-Set UP:
+Set up:
 
 
 To use it you just need to run:
